@@ -4,7 +4,6 @@
 import numpy as np
 import pandas as pd
 import random
-from torch.autograd import Variable
 
 ## read input_dataframe
 import pickle

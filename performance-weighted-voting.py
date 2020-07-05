@@ -8,7 +8,7 @@ from torch.autograd import Variable
 
 ## read input_dataframe
 import pickle
-patient_file = open('/home/ylz0045/TCGA_pancancer/data/patient_matrix.pkl','rb')
+patient_file = open('patient_matrix.pkl','rb')
 input_dataframe = pickle.load(patient_file)
 patient_file.close()
 

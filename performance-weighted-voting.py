@@ -78,9 +78,26 @@ grid_search3 = GridSearchCV(clf3, param_grid, n_jobs = 20, verbose = 0).fit(trai
 best_parameters3 = grid_search3.best_estimator_.get_params()
 
 ## MLP
+hidden_layers = []
+
+for a in [200, 400, 600, 800, 1000]:
+    for b in [200, 400, 600, 800, 1000]:
+        for c in [200, 400, 600, 800, 1000]:
+            for d in [200, 400, 600, 800, 1000]:
+                hidden_layers.append((a, b, c, d))
+for a in [200, 400, 600, 800, 1000]:
+    for b in [200, 400, 600, 800, 1000]:
+        for c in [200, 400, 600, 800, 1000]:
+            hidden_layers.append((a, b, c))
+for a in [200, 400, 600, 800, 1000]:
+    for b in [200, 400, 600, 800, 1000]:
+        hidden_layers.append((a, b))
+for a in [200, 400, 600, 800, 1000]:
+    hidden_layers.append((a))
+
+
 clf4 = MLPClassifier(shuffle=True)
-param_grid = {'hidden_layer_sizes': [(256,256),(256,512),(256,1024),(512,256),(512, 512),
-                                     (512, 1024),(1024,256),(1024,512),(1024,1024)],
+param_grid = {'hidden_layer_sizes': hidden_layers,
               'learning_rate': ['adaptive', 'invscaling', 'constant'],
               'learning_rate_init': [0.0001, 0.001, 0.01, 0.1, 1],
               'momentum': [0.6, 0.7, 0.8, 0.9],

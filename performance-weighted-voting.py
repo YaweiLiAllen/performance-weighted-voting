@@ -95,7 +95,6 @@ for a in [200, 400, 600, 800, 1000]:
 for a in [200, 400, 600, 800, 1000]:
     hidden_layers.append((a))
 
-
 clf4 = MLPClassifier(shuffle=True)
 param_grid = {'hidden_layer_sizes': hidden_layers,
               'learning_rate': ['adaptive', 'invscaling', 'constant'],
